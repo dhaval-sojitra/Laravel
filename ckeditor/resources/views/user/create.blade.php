@@ -69,13 +69,22 @@
             <label for="subtitle">Subtitle:</label>
             <input type="text" id="subtitle" name="subtitle" required><br><br>
             <label for="content">Content:</label>
-            <textarea id="content" name="content" rows="4" required></textarea><br><br>
+            <div id="editor">
+
+            </div>
+            <script>
+                ClassicEditor
+                    .create( document.querySelector( '#editor' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
+            </script><br><br>
             <div style="text-align: center;">
                 <button type="submit">Submit</button>
             </div>
         </form>
-
-
-
     </body>
+@endsection
+@section('script')
+<script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
 @endsection

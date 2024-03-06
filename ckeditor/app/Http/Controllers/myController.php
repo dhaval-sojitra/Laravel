@@ -13,7 +13,8 @@ class myController extends Controller
         return view('user.create');
     }
     function home(){
-        return view('templates.home2');
+        $mypost = myblog::get();
+        return view('templates.home2',compact('mypost'));
     }
     function store(Request $request){
         $myblog = new myblog();
@@ -22,5 +23,10 @@ class myController extends Controller
         $myblog->content = $request->content;
         $myblog->save();
         return redirect()->route('index');
+    }
+    function delete($id){
+        $mypost = myblog::find($id);
+        $mypost->delete();
+        return redirect()->route('home');
     }
 }
