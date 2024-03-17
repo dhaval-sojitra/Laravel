@@ -93,10 +93,6 @@ class StudentsController extends Controller
      * @param  \App\Models\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function edit(Students $students)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -105,9 +101,19 @@ class StudentsController extends Controller
      * @param  \App\Models\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Students $students)
+    public function edit(Request $request,$id)
     {
-        //
+        $student = Students::find($id);
+        $student->name = $request->name;
+        $student->enrollmentno = $request->enrollment;
+        $student->programid = $request->program;
+        $student->departmentid = $request->department;
+        $student->save();
+        return redirect()->route('show');
+    }
+    public function update($id){
+        $student = Students::find($id);
+        return view('update',compact('student'));
     }
 
     /**
@@ -116,8 +122,10 @@ class StudentsController extends Controller
      * @param  \App\Models\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Students $students)
+    public function destroy($id)
     {
-        //
+        $student = Students::find($id);
+        $student->delete();
+        return redirect()->route('show');
     }
 }
