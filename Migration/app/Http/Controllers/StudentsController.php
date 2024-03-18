@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Students;
 use App\Models\program;
 use App\Models\department;
+use App\Models\User;
 use Illuminate\Http\Request;
 class StudentsController extends Controller
 {
@@ -16,6 +17,22 @@ class StudentsController extends Controller
     public function index()
     {
         return view('index');
+    }
+    public function adduser()
+    {
+        $user = User::get();
+        return
+        view('adduser',compact('user'));
+    }
+    public function user(){
+        $user = new User();
+        $user->factory(1)->create();
+        return redirect()->route('adduser');
+    }
+    public function multiuser(Request $request){
+        $user = new User();
+        $user->factory($request->number)->create();
+        return redirect()->route('adduser');
     }
     public function show()
     {

@@ -15,6 +15,9 @@ use App\Http\Controllers\StudentsController;
 */
 
 Route::get('/index',[StudentsController::class,'index'])->name('index');
+Route::get('/adduser',[StudentsController::class,'adduser'])->name('adduser');
+Route::get('/user',[StudentsController::class,'user'])->name('user');
+Route::post('/multiuser',[StudentsController::class,'multiuser'])->name('multiuser');
 Route::get('/student',[StudentsController::class,'student'])->name('student');
 Route::get('/department',[StudentsController::class,'department'])->name('department');
 Route::get('/programs',[StudentsController::class,'programs'])->name('programs');

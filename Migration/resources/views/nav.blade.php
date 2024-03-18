@@ -43,6 +43,7 @@
         <a href="{{route('student')}}">Add Student</a>
         <a href="{{route('programs')}}">Add program</a>
         <a href="{{route('department')}}">Add Department</a>
+        <a href="{{route('adduser')}}">Add User</a>
     </div>
 
     <!-- Add some content below the navbar for demonstration purposes -->

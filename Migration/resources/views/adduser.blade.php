@@ -1,7 +1,15 @@
 @extends('index')
-
 @section('content')
     <style>
+        form input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
         /* Style the table */
         .styled-table {
             width: 100%;
@@ -108,44 +116,50 @@
             cursor: pointer;
             border-radius: 10px;
         }
-    </style>
-    <script>
-        function openURL() {
-            var routeUrl = "<?php echo route('student'); ?>";
-            window.open(routeUrl, "_blank");
+
+        h1 {
+            margin-top: 10px;
         }
-    </script>
-    <div class="container">
-        <h1>Student Details</h1>
-        <button onclick="openURL()" class="btn">+
-            Add Student</button>
+    </style>
+    <h1 align="center">Users Information</h1>
+    <div style="display: flex; justify-content: space-between">
+        <form action="{{ route('multiuser') }}" method="post">
+            @csrf
+            <label for="title">Create Users</label>
+            <input type="text" id="user" name="number" placeholder="Enter numbers of create user" required>
+            <button type="submit" class="btn">Submit</button>
+
+        </form>
+        <a href="{{ route('user') }}" class="btn">+Add Single User</a>
     </div>
     <div class="div">
         <table class="styled-table">
             <thead>
                 <tr>
-                    <th>Student ID</th>
-                    <th>Student Name</th>
-                    <th>Enrollment No</th>
-                    <th>Program ID</th>
-                    <th>Department ID</th>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Email Verified At</th>
+                    <th>Password</th>
+                    <th>Remember Token</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($student as $student)
+                @foreach ($user as $user)
                     <tr>
-                        <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->enrollmentno }}</td>
-                        <td>{{ $student->programid }}</td>
-                        <td>{{ $student->departmentid }}</td>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->password }}</td>
+                        <td>{{ $user->remember_token }}</td>
                         <td>
-                            <a href="{{ route('update', $student->id) }}" class="edit-btn">Edit</a>
+                            <a href="#" class="edit-btn">Edit</a>
                         </td>
                         <td>
-                            <form action="{{ route('destroy', $student->id) }}" method="post">
+                            <form action="" method="">
                                 @csrf
                                 @method('delete')
                                 <input type="submit" value="Delete" class="delete-btn">
