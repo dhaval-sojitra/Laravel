@@ -64,13 +64,14 @@
         <!-- Form -->
         <form action="{{route('store')}}" method="post" style="margin-top: 20px;">
             @csrf
+            <input type="hidden" name="blog_id" value="1">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required><br><br>
             <label for="subtitle">Subtitle:</label>
             <input type="text" id="subtitle" name="subtitle" required><br><br>
             <label for="content">Content:</label>
-            <div id="editor">
-
+            <div>
+                <textarea name="content" id="editor" cols="30" rows="10"></textarea>
             </div>
             <script>
                 ClassicEditor

@@ -22,27 +22,31 @@
         </style>
 
         <div style="padding: 20px;">
-            <h2>Welcome...Create Your Blog..</h2>
+            <h2>Welcome...</h2>
             <table>
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
                     <th>Subtitle</th>
                     <th>Content</th>
+                    <th>Show</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                 </tr>
 
                 @foreach ($mypost as $mp)
                     <tr>
-                        <td>{{ $mp->id }}</td>
+                        <th>{{ $mp->id }}</th>
                         <td>{{ $mp->title }}</td>
                         <td>{{ $mp->subtitle }}</td>
                         <td>{{ $mp->content }}</td>
+                        <td><a href="{{ route('show' , $mp->id) }}">Show</a></td>
+                        <td><a href="">Edit</a></td>
                         <td>
-                            <form action="{{route('delete',$mp->id)}}" method="post">
+                            <form action="{{ route('delete', $mp->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete"/>
+                                <input type="submit" value="Delete" />
                             </form>
                         </td>
                     </tr>

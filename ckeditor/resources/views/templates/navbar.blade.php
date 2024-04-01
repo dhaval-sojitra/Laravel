@@ -34,13 +34,14 @@
             text-align: left;
         }
     }
-    </style>
-    </head>
-    <body>
+</style>
+</head>
 
-    <div class="navbar" style="margin-right : 1rem; margin-left : 0.5rem; margin-top: 1rem">
-        <a href="{{route('home')}}">Home</a>
-        <a href="{{route('create')}}">Add Post</a>
+<body>
+
+    <div class="navbar" style="margin-top: 1rem">
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('create') }}">Add Post</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
     </div>
@@ -48,4 +49,4 @@
     <!-- Add some content below the navbar for demonstration purposes -->
 
 
-    </body>
+</body>

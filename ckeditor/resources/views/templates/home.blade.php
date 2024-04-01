@@ -8,7 +8,7 @@
     @yield('script')
 </head>
 <body background="#ADD8E6">
-    <h1 align="center">Welcome...</h1>
+    <h1 align="center">My Blog</h1>
     @include('templates.navbar')
     @yield('content')
     @include('templates.footer')
