@@ -7,6 +7,7 @@ use App\Models\program;
 use App\Models\department;
 use App\Models\User;
 use Illuminate\Http\Request;
+
 class StudentsController extends Controller
 {
     /**
@@ -21,15 +22,16 @@ class StudentsController extends Controller
     public function adduser()
     {
         $user = User::get();
-        return
-        view('adduser',compact('user'));
+        return view('adduser', compact('user'));
     }
-    public function user(){
+    public function user()
+    {
         $user = new User();
         $user->factory(1)->create();
         return redirect()->route('adduser');
     }
-    public function multiuser(Request $request){
+    public function multiuser(Request $request)
+    {
         $user = new User();
         $user->factory($request->number)->create();
         return redirect()->route('adduser');
@@ -37,7 +39,7 @@ class StudentsController extends Controller
     public function show()
     {
         $student = Students::get();
-        return view('show',compact('student'));
+        return view('show', compact('student'));
     }
     public function student()
     {
@@ -59,11 +61,11 @@ class StudentsController extends Controller
      */
     public function create(Request $request)
     {
-         $student = new department();
-         $student->id = $request->id;
-         $student->name = $request->name;
-         $student->save();
-         return redirect()->route('show');
+        $student = new department();
+        $student->id = $request->id;
+        $student->name = $request->name;
+        $student->save();
+        return redirect()->route('show');
     }
     public function addprogram(Request $request)
     {
@@ -84,7 +86,6 @@ class StudentsController extends Controller
         $student->departmentid = $request->department;
         $student->save();
         return redirect()->route('show');
-
     }
 
     /**
@@ -118,7 +119,7 @@ class StudentsController extends Controller
      * @param  \App\Models\Students  $students
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id)
+    public function edit(Request $request, $id)
     {
         $student = Students::find($id);
         $student->name = $request->name;
@@ -128,9 +129,10 @@ class StudentsController extends Controller
         $student->save();
         return redirect()->route('show');
     }
-    public function update($id){
+    public function update($id)
+    {
         $student = Students::find($id);
-        return view('update',compact('student'));
+        return view('update', compact('student'));
     }
 
     /**
