@@ -78,8 +78,8 @@ h4{
     }
 </style>
 <body>
-
-    <h1>Title:</h1>
+<div style="margin-left: 20px;">
+    <h1 style="margin-top: 20px;">Title:</h1>
     <h3>{{ $mypost->title }}</h3><br>
 <h1>Subtitle:</h1>
 <h3>{{ $mypost->subtitle }}</h3><br>
@@ -104,11 +104,8 @@ h4{
         <div class="card-title">{{$comment -> user_id}}</div>
         <div class="card-description">{{$comment -> content}}</div>
     </div>
-    <div class="card-action">
-        <a href="#">Read More</a>
-    </div>
 </div>
 @endforeach
-
+</div>
 </body>
 @endsection
