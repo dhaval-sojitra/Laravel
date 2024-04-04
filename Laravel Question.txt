@@ -1,0 +1,25 @@
+develop a hospitle website in laravel where in featch the following data..
+
+1. petint name
+2.	mobile num
+3.	desies
+4.	medicinces
+
+submit
+ckeditor
+textbox
+page route should be carried with slug only.
+implement various vistis history
+
+insert a fack data of 10  with by implementing factories
+inser a five data implementing by seeder
+create a database using migration only
+create a all the controller using resources only
+
+
+
+
+Perform a crud opration alog with soft Delete
+implement one to one
+one to many
+and many to many functionality
