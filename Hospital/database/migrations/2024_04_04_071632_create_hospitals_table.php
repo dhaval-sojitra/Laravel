@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('hospitals', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('number');
+            $table->longText('deseases');
+            $table->string('medicines');
+            $table->string('slug');
             $table->timestamps();
         });
     }

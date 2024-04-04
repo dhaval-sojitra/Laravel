@@ -62,15 +62,15 @@
 
         <h1 class="page-title">Add New Patient</h1>
         <!-- Form -->
-        <form action="#" method="post" style="margin-top: 20px;">
+        <form action="{{route('Hospital.store')}}" method="post" style="margin-top: 20px;">
             @csrf
             <label for="name">Patient Name:</label>
             <input type="text" id="name" name="name" required><br><br>
             <label for="number">Moblie Number:</label>
             <input type="number" id="number" name="number" required><br><br>
-            <label for="diseases"> Diseases:</label>
+            <label for="deseases"> Diseases:</label>
             <div>
-                <textarea name="diseases" id="editor" cols="30" rows="10"></textarea>
+                <textarea name="deseases" id="editor" cols="30" rows="15"></textarea>
             </div>
             <script>
                 ClassicEditor
@@ -79,6 +79,8 @@
                         console.error( error );
                     } );
             </script><br><br>
+             <label for="medicines">Medicines:</label>
+             <input type="text" id="medicines" name="medicines" required><br><br>
             <div style="text-align: center;">
                 <button type="submit">Submit</button>
             </div>

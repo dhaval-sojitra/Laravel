@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hospital;
 use Illuminate\Http\Request;
+use Illumitate\Support\Str;
 
 use function Ramsey\Uuid\v1;
 
@@ -37,7 +38,8 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Hospital::create($request->all() + ['slug' => Str::slug($request->deseases,"-")]);
+        return $request->all();
     }
 
     /**
