@@ -40,7 +40,7 @@
 <body>
 
     <div class="navbar" style="margin-top: 1rem">
-        <a href="{{route('Hospital.index')}}">Home</a>
+        <a href="{{route('home')}}">Home</a>
         <a href="{{route('Hospital.create')}}">Add New Petient</a>
         <a href="#">About</a>
         <a href="#">Contact</a>

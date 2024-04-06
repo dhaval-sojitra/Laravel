@@ -16,3 +16,4 @@ use App\Http\Controllers\HospitalController;
 
 
 Route::resource('Hospital',HospitalController::class);
+Route::get('/home',[HospitalController::class,'home'])->name('home');

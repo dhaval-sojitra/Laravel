@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Hospital;
 use Illuminate\Http\Request;
-use Illumitate\Support\Str;
+// use Illumitate\Support\Str;
+use Illuminate\Support\Str;
 
 use function Ramsey\Uuid\v1;
 
@@ -38,8 +39,8 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-        Hospital::create($request->all() + ['slug' => Str::slug($request->deseases,"-")]);
-        return $request->all();
+        Hospital::create($request->all() + ['slug' => Str::slug($request->deseases, "-")]);
+        return redirect()->route('Hospital.create');
     }
 
     /**
@@ -48,9 +49,15 @@ class HospitalController extends Controller
      * @param  \App\Models\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function show(Hospital $hospital)
+    public function show(Hospital $hospital,$id)
     {
-        //
+        $hospital = Hospital::find($id);
+        return view('show',compact('hospital'));
+    }
+    public function home(Hospital $hospital)
+    {
+        $patient = Hospital::get();
+        return view('Home', compact('patient'));
     }
 
     /**
