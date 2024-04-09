@@ -39,7 +39,7 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-        Hospital::create($request->all() + ['slug' => Str::slug($request->deseases, "-")]);
+        Hospital::create($request->all());
         return redirect()->route('Hospital.create');
     }
 
@@ -66,9 +66,10 @@ class HospitalController extends Controller
      * @param  \App\Models\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hospital $hospital)
+    public function edit($id)
     {
-        //
+        $hospital = Hospital::find($id);
+        return view('Edit',compact('hospital'));
     }
 
     /**
@@ -78,9 +79,16 @@ class HospitalController extends Controller
      * @param  \App\Models\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hospital $hospital)
+    public function update(Request $request,$id)
     {
-        //
+        $hospital = Hospital::find($id);
+        $hospital->name = $request->name;
+        $hospital->number = $request->number;
+        $hospital->deseases = $request->deseases;
+        $hospital->medicines = $request->medicines;
+        $hospital->slug = $request->slug;
+        $hospital->save();
+        return redirect()->route('home');
     }
 
     /**
@@ -89,8 +97,11 @@ class HospitalController extends Controller
      * @param  \App\Models\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hospital $hospital)
+    public function destroy($id)
     {
-        //
+        $patient = Hospital::find($id);
+        $patient->delete($id);
+        return redirect()->route('home');
     }
+
 }

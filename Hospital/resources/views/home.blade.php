@@ -28,17 +28,30 @@
             <th>Name</th>
             <th>Phone</th>
            <th>Show</th>
+           <th>Edit</th>
+           <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($patient as $patient)
+        @foreach ($patient as $patients)
 
         <tr>
-            <td>{{$patient->id}}</td>
-            <td>{{$patient->name}}</td>
-            <td>{{$patient->number}}</td>
+            <td>{{$patients->id}}</td>
+            <td>{{$patients->name}}</td>
+            <td>{{$patients->number}}</td>
             <td>
-                <a href="{{route('Hospital.show',$patient->id)}}">Show</a>
+                <a href="{{route('Hospital.show',$patients->id)}}">Show</a>
+            </td>
+            <td>
+                <a href="{{route('Hospital.edit',$patients->id)}}">Edit</a>
+            </td>
+            <td>
+               <form action="{{route('Hospital.destroy',$patients->id)}}" method="post">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Delete">
+            </form>
+
             </td>
         </tr>
 

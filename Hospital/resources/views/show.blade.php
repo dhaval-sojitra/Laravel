@@ -25,7 +25,7 @@
     </tr>
     <tr>
         <td>Diseases :</td>
-        <td>{{$hospital->diseases}}</td>
+        <td>{{$hospital->deseases}}</td>
     </tr>
     <tr>
         <td>Medicines :</td>
