@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mypost;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class MypostController extends Controller
@@ -14,7 +15,9 @@ class MypostController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $user = auth()->user();
+        $myposts = Mypost::paginate(10);
+        return view('user.index',['myposts' => $myposts,'user'=>$user]);
     }
 
     /**
@@ -24,7 +27,8 @@ class MypostController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
+
     }
 
     /**
@@ -35,7 +39,10 @@ class MypostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slug = Str::slug( $request->title, '-');
+        $uid = auth()->User()->id;
+        Mypost::create($request->all() + ['slug' => $slug,'user_id'=>$uid]);
+        return redirect()->route('mypost.index');
     }
 
     /**

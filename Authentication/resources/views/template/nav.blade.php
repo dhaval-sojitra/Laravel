@@ -7,12 +7,12 @@
     }
 
     /* Navbar Styles */
-    .navbar {
+    .navbar1 {
         background-color: #333;
         overflow: hidden;
     }
 
-    .navbar a {
+    .navbar1 a {
         float: left;
         display: block;
         color: #f2f2f2;
@@ -21,14 +21,14 @@
         text-decoration: none;
     }
 
-    .navbar a:hover {
+    .navbar1 a:hover {
         background-color: #ddd;
         color: black;
     }
 
     /* Responsive Navigation */
     @media screen and (max-width: 600px) {
-        .navbar a {
+        .navbar1 a {
             float: none;
             display: block;
             text-align: left;
@@ -38,9 +38,9 @@
     </head>
     <body>
 
-    <div class="navbar" style="margin-right : 0; margin-left : 0.0; margin-top: 1rem">
-        <a href="{{route('')}}">Home</a>
-        <a href="">Add Student</a>
+    <div class="navbar1" style="margin-right : 0; margin-left : 0.0; margin-top : 0.0">
+        <a href="{{route('mypost.index')}}">Home</a>
+        <a href="{{route('mypost.create')}}">Add Post</a>
         <a href="">Add program</a>
         <a href="">Add Department</a>
         <a href="">Add User</a>

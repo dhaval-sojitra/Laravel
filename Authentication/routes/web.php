@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MypostController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::resource('mypost',[MypostController::class]);
+Route::resource('mypost',MypostController::class)->middleware('auth')->except(['show','index']);
+Route::resource('mypost',MypostController::class)->only(['show','index']);
 
 Route::middleware([
     'auth:sanctum',

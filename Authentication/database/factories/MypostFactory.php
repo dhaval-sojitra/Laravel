@@ -21,7 +21,7 @@ class MypostFactory extends Factory
             'title' =>$title,
             'subtitle'=>fake()->sentence(2,true),
             'content'=>fake()->sentence(10,true),
-            'user_id'=>rand(1,10),
+            'user_id'=>rand(1,11),
             'slug' => Str::slug($title,'-'),
         ];
     }

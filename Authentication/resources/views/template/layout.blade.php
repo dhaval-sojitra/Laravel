@@ -7,9 +7,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <script src="{{url('js/bootstrap.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
    @include('template.nav')
+   @yield('content')
    @include('template.footer')
 </body>
 </html>
