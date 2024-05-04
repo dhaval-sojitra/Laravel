@@ -17,28 +17,32 @@
             <tbody>
                 @foreach($mypost as $d)
                     <tr>
-                        <th scope="row">{{ $d->id }}</th>
+                        <th scope="row">{{ $d->getUser->id }}</th>
                         <td>{{ $d->title }}</td>
                         <td>{{ $d->subtitle }}</td>
                         <td>{!! $d->content !!}</td>
                         <td>
-                            <a class="btn btn-warning" href="{{route('mypost.edit',$d->id)}}">Edit</a>
+                            <a class="btn btn-warning" href="{{route('mypost.edit',$d->slug)}}">Edit</a>
                         </td>
                         <td>
-                            <form action="{{route('mypost.destroy',$d->id)}}" method="post">
+                            <form action="{{route('mypost.destroy',$d->slug)}}" method="post">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{route('mypost.show',$d->id)}}">Show</a>
+                            <a class="btn btn-primary" href="{{route('mypost.show',$d->slug)}}">Show</a>
                         </td>
                     </tr>
                 @endforeach
 
             </tbody>
         </table>
+        <div style="display: flex; align-items: center; justify-content: center">
 
+            {{$mypost->links()}}
+        </div>
     </div>
+
 @endsection

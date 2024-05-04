@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\mypost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+// composer require laravel/jetstream
+// php artisan jetstream:install livewire
 class MypostController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class MypostController extends Controller
      */
     public function index()
     {
-        $mypost = Mypost::get();
+        $mypost = Mypost::paginate(10);
         return view('user.index',compact('mypost'));
     }
 
@@ -38,7 +39,8 @@ class MypostController extends Controller
     public function store(Request $request)
     {
         $slug = Str::slug($request->subtitle);
-        Mypost::create($request->all() + ['slug'=> $slug]);
+        $id = rand(1,11);
+        Mypost::create($request->all() + ['slug'=> $slug,'user_id'=>$id]);
         return redirect()->route('mypost.index');
     }
 

@@ -1,6 +1,6 @@
 @extends('template.layout')
 @section('content')
-<form action="{{route('mypost.update',$mypost->id)}}" method="post">
+<form action="{{route('mypost.update',$mypost->slug)}}" method="post">
     @csrf
     @method('put')
     <div class="form-group">

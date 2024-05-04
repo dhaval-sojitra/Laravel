@@ -14,6 +14,6 @@ class MypostSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

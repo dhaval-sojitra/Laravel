@@ -23,6 +23,7 @@ class MypostFactory extends Factory
             'subtitle' =>$subtitle,
             'content'=>$this->faker->sentences(rand(1,5),true),
             'slug'=>Str::slug($subtitle,'-'),
+            'user_id'=>rand(1,11),
         ];
     }
 }

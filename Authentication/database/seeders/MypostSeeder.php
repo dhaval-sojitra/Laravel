@@ -14,6 +14,14 @@ class MypostSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // $data = collect(
+        //     [
+        //         ["name" => "dhaval", "city" => "surat", "phone" => 234532, "address" => "surat varacha","slug"=>Str::slug("name".'-'.rand())],
+        //         ["name" => "keval", "city" => "surat", "phone" => 234532, "address" => "surat varacha","slug"=>Str::slug("name".'-'.rand())]
+        //     ]
+        // );
+        // $data->map(function ($item) {
+        //     Mypro::create($item);
+        // });
     }
 }

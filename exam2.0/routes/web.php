@@ -15,7 +15,17 @@ use App\Http\Controllers\MypostController;
 */
 
 Route::get('/', function () {
-    return view('user.index');
+    return view('welcome');
 });
 
 Route::resource('mypost',MypostController::class);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
